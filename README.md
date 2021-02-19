@@ -20,13 +20,13 @@ docker run --rm -i -p 8025:25 -p 8080:80 timband/mocksmtp
 Any GET request to the HTTP port (8080 in this example)
 returns an HTML document containing a table with four columns, like this:
 
-ID | From | To | Contents
----|---|---|---
-integer ID (0 for the earliest email, incremented each time) | From address | To addresses, as *li* elements of *ul* | Body text, as *p*-separated lines. HTML tags are neutered, except for *a* links.
+Column: | ID | From | To | Cc | Subject | Contents
+---|---|---|---|---|---|---
+*Description:* | integer ID (0 for the earliest email, incremented each time) | From address | To addresses | Body text, as *p*-separated lines. HTML tags are neutered, but links beginning http:// or https:// are linkified
+*Class of td element:* | id | from | to | cc | subject | body-text
 
 The emails are listed most recent first, so that the first
 email listed is usually the one you want in your tests.
 
-The *td* elements in the first column have the class
-*id", in the second column they have "from", in the
-third "to" and in the fourth "body-text".
+Any cell in the table that contains multiple values will
+have them as *li* elements of a *ul* element.
