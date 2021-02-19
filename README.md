@@ -18,7 +18,7 @@ docker run --rm -i -p 8025:25 -p 8080:80 timband/mocksmtp
 ```
 
 Any GET request to the HTTP port (8080 in this example)
-returns an HTML document containing a table with four columns, like this:
+returns an HTML document containing a table with six columns, like this:
 
 Column: | ID | From | To | Cc | Subject | Contents
 ---|---|---|---|---|---|---
